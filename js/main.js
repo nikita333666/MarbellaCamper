@@ -290,55 +290,55 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Motorhome sliders
     const motorhomeSliders = document.querySelectorAll('.motorhome-slider');
-    motorhomeSliders.forEach((slider, index) => {
+    motorhomeSliders.forEach(slider => {
         new Swiper(slider, {
             loop: true,
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
             autoplay: {
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             pagination: {
-                el: slider.querySelector('.swiper-pagination'),
+                el: '.swiper-pagination',
                 clickable: true,
-            }
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
     });
 
-    // Testimonial slider initialization 
+    // Testimonial slider
     const testimonialSlider = new Swiper('.testimonial-slider', {
-        slidesPerView: 1,
-        spaceBetween: 30,
         loop: true,
         autoplay: {
-            delay: 5000,
+            delay: 6000,
             disableOnInteraction: false,
         },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
     });
 
-    // Air Suspension Slider
+    // Suspension slider
     const suspensionSwiper = new Swiper('.suspension-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 0,
         loop: true,
-        effect: 'slide',
-        speed: 800,
         autoplay: {
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
         },
-        grabCursor: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
-            type: 'bullets',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
     });
 });
@@ -510,12 +510,47 @@ if (showDetailsBtn) {
 
 tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Remove active class from all buttons and contents
+        // Плавно скрываем текущий активный контент
+        const activeContent = document.querySelector('.tab-content.active');
+        if (activeContent) {
+            activeContent.style.opacity = '0';
+            activeContent.style.transform = 'translateY(10px)';
+        }
+
+        // Убираем активный класс у всех кнопок и контента
         tabBtns.forEach(b => b.classList.remove('active'));
         tabContents.forEach(c => c.classList.remove('active'));
 
-        // Add active class to clicked button and corresponding content
+        // Добавляем активный класс кнопке и соответствующему контенту
         btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
+        const newContent = document.getElementById(btn.dataset.tab);
+        newContent.classList.add('active');
+
+        // Анимируем появление нового контента
+        setTimeout(() => {
+            newContent.style.opacity = '1';
+            newContent.style.transform = 'translateY(0)';
+        }, 50);
+
+        // Анимация подчеркивания
+        const underline = btn.querySelector('.tab-underline');
+        if (!underline) {
+            const line = document.createElement('div');
+            line.className = 'tab-underline';
+            btn.appendChild(line);
+        }
+    });
+
+    // Эффект при наведении
+    btn.addEventListener('mouseenter', () => {
+        if (!btn.classList.contains('active')) {
+            btn.style.color = 'var(--primary-color)';
+        }
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        if (!btn.classList.contains('active')) {
+            btn.style.color = 'var(--text-light)';
+        }
     });
 });
