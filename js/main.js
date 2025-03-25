@@ -555,19 +555,22 @@ tabBtns.forEach(btn => {
     });
 });
 
-// Устанавливаем начальную позицию скролла при первой загрузке
+// Устанавливаем начальную позицию скролла при первой загрузке (только для ПК)
 document.addEventListener('DOMContentLoaded', function() {
-    // Проверяем, было ли уже посещение
-    if (!sessionStorage.getItem('visited')) {
-        // Задержка для гарантии загрузки изображения
-        setTimeout(() => {
-            // Прокручиваем на 40% высоты окна
-            window.scrollTo({
-                top: window.innerHeight * 0.2,
-                behavior: 'instant' // Мгновенная прокрутка без анимации
-            });
-            // Отмечаем, что страница была посещена
-            sessionStorage.setItem('visited', 'true');
-        }, 100);
+    // Проверяем ширину экрана (только для ПК > 991px)
+    if (window.innerWidth > 991) {
+        // Проверяем, было ли уже посещение
+        if (!sessionStorage.getItem('visited')) {
+            // Задержка для гарантии загрузки изображения
+            setTimeout(() => {
+                // Прокручиваем на 40% высоты окна
+                window.scrollTo({
+                    top: window.innerHeight * 0.2,
+                    behavior: 'instant' // Мгновенная прокрутка без анимации
+                });
+                // Отмечаем, что страница была посещена
+                sessionStorage.setItem('visited', 'true');
+            }, 100);
+        }
     }
 });
