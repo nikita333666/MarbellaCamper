@@ -20,6 +20,118 @@
     <link rel="stylesheet" href="https://mhkit.rometheme.pro/vantura/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
     <script src="../js/main.js" defer></script>
+    <style>
+        @media (max-width: 768px) {
+            .video-wrapper iframe {
+                height: 280px;
+                justify-content: center;
+                border-radius: 5%;
+            }
+            
+            /* Улучшенные стили для мобильного навбара */
+            body .navbar .container .navbar-wrapper .navbar-menu.active {
+                display: block !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu {
+                display: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100vh !important;
+                background: white !important;
+                padding: 100px 0 20px !important;
+                z-index: 1000 !important;
+                overflow-y: auto !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu.active {
+                display: block !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav li {
+                width: 100% !important;
+                text-align: center !important;
+                border-bottom: 1px solid #eaeaea !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav li:last-child {
+                border-bottom: none !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav li .nav-link {
+                display: block !important;
+                text-align: center !important;
+                padding: 15px 0 !important;
+                font-size: 18px !important;
+                width: 100% !important;
+                color: #333 !important;
+                margin: 0 auto !important;
+            }
+        }
+        
+        /* Убираем hover-эффект у кнопки в блоке с пневмоподвеской */
+        .suspension-header .header-actions .btn-primary.lang-en:hover {
+            background-color: #FFB800 !important;
+            transform: none !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+            cursor: default !important;
+        }
+         
+    </style>
+    <style>
+        /* Полное удаление hover-эффектов для кнопок в блоке с пневмоподвеской */
+        section#suspension .suspension-header .header-actions .btn-primary:hover,
+        section#suspension .suspension-header .header-actions .btn-primary:active,
+        section#suspension .suspension-header .header-actions .btn-primary:focus,
+        .air-suspension .btn-primary:hover,
+        .air-suspension .btn-primary:active,
+        .air-suspension .btn-primary:focus {
+            background-color: #FFB800 !important;
+            color: #fff !important;
+            transform: none !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+            transition: none !important;
+        }
+
+        section#suspension .suspension-header .header-actions .btn-outline:hover,
+        section#suspension .suspension-header .header-actions .btn-outline:active,
+        section#suspension .suspension-header .header-actions .btn-outline:focus,
+        .air-suspension .btn-outline:hover,
+        .air-suspension .btn-outline:active,
+        .air-suspension .btn-outline:focus {
+            background: transparent !important;
+            color: #333 !important;
+            transform: none !important;
+            box-shadow: none !important;
+            border-color: #333 !important;
+            transition: none !important;
+        }
+        
+@media (max-width: 768px) {
+    .features-side {
+        margin-top: -120px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -150,7 +262,7 @@
                         <div class="motorhome-content">
                             <h3>Benimar Sport 323</h3>
                             <div class="features">
-                               <p>Homologado para viajar/dormir 7 personas. Baño completo con ducha, cocina equipada con menaje, nevera grande con congelador, armario, ropa de cama y toallas, TV smart, Webasto calefacción, placa solar, mosqueteras, bombona de gas, cámara trasera, cierras exteriores y interiores para seguridad, mesa y sillas camping plegables, porta bicicletas para 3, toldo lateral. Química WC está incluida . Seguro con cobertura total con franquicia 900€. </p>
+                               <p>Homologado para viajar/dormir 7 personas. Baño completo con ducha, cocina equipada con menaje, nevera grande con congelador, armario, ropa de cama y toallas, TV smart, Webasto calefacción, placa solar, mosquiteras, bombona de gas, cámara trasera, cierras exteriores y interiores para seguridad, mesa y sillas camping plegables, porta bicicletas para 3, toldo lateral. Química WC está incluida . Seguro con cobertura total con franquicia 900€. </p>
                             </div>
                             <div class="motorhome-footer">
                                 <button class="btn btn-primary view-prices">Ver Precios</button>
@@ -354,7 +466,7 @@
                         <div class="motorhome-content">
                             <h3>Iveco Daily</h3>
                             <div class="features">
-                           <p>Homologado para viajar/dormir 5/4 personas (1 cama doble, 1 cama singular, 1,5 cama, posible adulto + niño). Baño completo con ducha, cocina equipada con menaje, nevera de compresor con un pequeño congelador, armario, ropa de cama y toallas, smart TV, calefacción, agua caliente, placa solar, mosquiteros, bombona de gas para cocina de gas, cámara de visión trasera, cerraduras exteriores y interiores de seguridad, mesa y sillas de camping plegables, maletero muy amplio, ducha exterior, toldo, WC químico incluido. Seguro con cobertura total con franquicia 600€.</p>
+                           <p>Homologado para viajar/dormir 5/4 personas (1 cama doble, 1 cama singular, 1,5 cama, posible adulto + niño). Baño completo con ducha, cocina equipada con menaje, nevera de compresor con un pequeño congelador, armario, ropa de cama y toallas, smart TV, calefacción, agua caliente, placa solar, mosquiteros, bombona de gas para cocina de gas, cámara de visión trasera, cerraduras exteriores y interiores para seguridad, mesa y sillas de camping plegables, maletero muy amplio, ducha exterior, toldo, WC químico incluido. Seguro con cobertura total con franquicia 600€.</p>
                             </div>
                             <div class="motorhome-footer">
                                 <button class="btn btn-primary view-prices">Ver Precios</button>
@@ -428,13 +540,14 @@
                 <span class="section-subtitle" style="color:#FFB800">POR QUÉ ELEGIRNOS</span>
                 <h2 class="section-title">Ofrecemos el Mejor Vehículo para Tu Experiencia de Aventura</h2>
                 <div class="why-choose-us-content">
-                    <div class="video-side">
+                    <div class="video-side" style="margin-top: -50px;">
                         <div class="video-wrapper">
                             <iframe src="https://drive.google.com/file/d/1PmL-erxx0D-YbWvtOn9db-mn9b23ijDY/preview" 
-                                    width="100%"
-                                    height="100%"
-                                    allow="autoplay"
-                                    allowfullscreen>
+                            width="1600"
+                            height="900"
+                            allow="autoplay"
+                            allowfullscreen
+                            style="width: 100%; border: none;">
                             </iframe>
                         </div>
                     </div>
@@ -603,11 +716,11 @@
                                     <span class="price-label">OFERTA ESPECIAL</span>
                                 </div>
                                 </div>
-                                <div class="header-actions">
+                                <div class="header-actions" style="position: relative; top: 20px;">
                                     <a href="#contact" class="btn btn-primary lang-en">Solicitar Instalación</a>
-                                    <a href="#contact" class="btn btn-primary lang-es" style="display: none;">Solicitar Instalación</a>
-                                    <button class="btn btn-outline show-details lang-en">Ver Detalles</button>
-                                    <button class="btn btn-outline show-details lang-es" style="display: none;">Ver Detalles</button>
+                             
+                                <button class="btn btn-outline show-details lang-en">Ver Detalles</button>
+
                             </div>
                         </div>
 

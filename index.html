@@ -20,6 +20,118 @@
     <link rel="stylesheet" href="https://mhkit.rometheme.pro/vantura/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
     <script src="js/main.js" defer></script>
+    <style>
+        @media (max-width: 768px) {
+            .video-wrapper iframe {
+                height: 280px;
+                justify-content: center;
+                margin-top: 50px;
+                border-radius: 5%;
+            }
+            
+            /* Улучшенные стили для мобильного навбара */
+            body .navbar .container .navbar-wrapper .navbar-menu.active {
+                display: block !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu {
+                display: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100vh !important;
+                background: white !important;
+                padding: 100px 0 20px !important;
+                z-index: 1000 !important;
+                overflow-y: auto !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu.active {
+                display: block !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav li {
+                width: 100% !important;
+                text-align: center !important;
+                border-bottom: 1px solid #eaeaea !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav li:last-child {
+                border-bottom: none !important;
+            }
+            
+            body .navbar .container .navbar-wrapper .navbar-menu .navbar-nav li .nav-link {
+                display: block !important;
+                text-align: center !important;
+                padding: 15px 0 !important;
+                font-size: 18px !important;
+                width: 100% !important;
+                color: #333 !important;
+                margin: 0 auto !important;
+            }
+                    
+        /* Убираем hover-эффект у кнопки в блоке с пневмоподвеской */
+        .suspension-header .header-actions .btn-primary.lang-en:hover {
+            background-color: #FFB800 !important;
+            transform: none !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+            cursor: default !important;
+        }
+        }
+    </style>
+    <style>
+        /* Полное удаление hover-эффектов для кнопок в блоке с пневмоподвеской */
+        section#suspension .suspension-header .header-actions .btn-primary:hover,
+        section#suspension .suspension-header .header-actions .btn-primary:active,
+        section#suspension .suspension-header .header-actions .btn-primary:focus,
+        .air-suspension .btn-primary:hover,
+        .air-suspension .btn-primary:active,
+        .air-suspension .btn-primary:focus {
+            background-color: #FFB800 !important;
+            color: #fff !important;
+            transform: none !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+            transition: none !important;
+        }
+
+        section#suspension .suspension-header .header-actions .btn-outline:hover,
+        section#suspension .suspension-header .header-actions .btn-outline:active,
+        section#suspension .suspension-header .header-actions .btn-outline:focus,
+        .air-suspension .btn-outline:hover,
+        .air-suspension .btn-outline:active,
+        .air-suspension .btn-outline:focus {
+            background: transparent !important;
+            color: #333 !important;
+            transform: none !important;
+            box-shadow: none !important;
+            border-color: #333 !important;
+            transition: none !important;
+        }
+        
+@media (max-width: 768px) {
+    .features-side {
+        margin-top: -60px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -434,7 +546,8 @@
                                     width="1600"
                                     height="900"
                                     allow="autoplay"
-                                    allowfullscreen>
+                                    allowfullscreen
+                                    style="width: 100%; border: none;">
                             </iframe>
                         </div>
                     </div>
@@ -604,9 +717,9 @@
                             </div>
                             <div class="header-actions">
                                 <a href="#contact" class="btn btn-primary lang-en">Request Installation</a>
-                                <a href="#contact" class="btn btn-primary lang-es" style="display: none;">Solicitar Instalación</a>
+                             
                                 <button class="btn btn-outline show-details lang-en">View Details</button>
-                                <button class="btn btn-outline show-details lang-es" style="display: none;">Ver Detalles</button>
+                              
                             </div>
                         </div>
 
