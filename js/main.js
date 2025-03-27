@@ -101,23 +101,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Google Maps initialization
 function initMap() {
-    const marbellaLocation = { lat: 36.5097, lng: -4.8860 };
+    const marbellaLocation = { lat: 36.50520100591127, lng: -4.765758971164947 };
     const mapOptions = {
-        zoom: 13,
+        zoom: 17,
         center: marbellaLocation,
+        mapTypeId: google.maps.MapTypeId.HYBRID,
         styles: [
             {
                 featureType: "all",
-                elementType: "all",
-                stylers: [
-                    { saturation: -20 }
-                ]
-            },
-            {
-                featureType: "poi",
                 elementType: "labels",
                 stylers: [
-                    { visibility: "off" }
+                    { saturation: -20 }
                 ]
             }
         ]
@@ -129,22 +123,44 @@ function initMap() {
         position: marbellaLocation,
         map: map,
         title: 'Marbella Camper',
-        animation: google.maps.Animation.DROP
+        animation: google.maps.Animation.DROP,
+        icon: {
+            url: 'images/logo/logo.png',
+            scaledSize: new google.maps.Size(40, 40)
+        }
     });
 
     // Create info window content based on page language
     const isSpanish = document.documentElement.lang === 'es';
     const infoContent = isSpanish ? 
-        '<div style="padding: 10px;"><h3>Marbella Camper</h3><p>Tu aventura comienza aquí</p></div>' :
-        '<div style="padding: 10px;"><h3>Marbella Camper</h3><p>Your adventure starts here</p></div>';
+        '<div style="padding: 15px; max-width: 300px;">' +
+            '<h3 style="margin-bottom: 10px; color: #FFB800;">Marbella Camper</h3>' +
+            '<p style="margin-bottom: 8px;"><strong>Dirección:</strong><br>C. Liria, 14, 29604 Marbella, Málaga, España</p>' +
+            '<p style="margin-bottom: 8px;"><strong>Teléfono:</strong><br><a href="tel:+34642727021" style="color: #333;">+34 642 727 021</a></p>' +
+            '<p style="margin-bottom: 8px;"><strong>Horario:</strong><br>Lunes - Domingo: 9:00 - 20:00</p>' +
+            '<p style="margin-bottom: 8px;"><strong>Email:</strong><br><a href="mailto:marbellacamper@gmail.com" style="color: #333;">marbellacamper@gmail.com</a></p>' +
+            '<p><a href="https://maps.app.goo.gl/SRHE9VQncz8eWTNa8" target="_blank" style="color: #FFB800; text-decoration: underline;">Ver en Google Maps</a></p>' +
+        '</div>' :
+        '<div style="padding: 15px; max-width: 300px;">' +
+            '<h3 style="margin-bottom: 10px; color: #FFB800;">Marbella Camper</h3>' +
+            '<p style="margin-bottom: 8px;"><strong>Address:</strong><br>C. Liria, 14, 29604 Marbella, Málaga, Spain</p>' +
+            '<p style="margin-bottom: 8px;"><strong>Phone:</strong><br><a href="tel:+34642727021" style="color: #333;">+34 642 727 021</a></p>' +
+            '<p style="margin-bottom: 8px;"><strong>Hours:</strong><br>Monday - Sunday: 9:00 AM - 8:00 PM</p>' +
+            '<p style="margin-bottom: 8px;"><strong>Email:</strong><br><a href="mailto:marbellacamper@gmail.com" style="color: #333;">marbellacamper@gmail.com</a></p>' +
+            '<p><a href="https://maps.app.goo.gl/SRHE9VQncz8eWTNa8" target="_blank" style="color: #FFB800; text-decoration: underline;">View on Google Maps</a></p>' +
+        '</div>';
 
     const infoWindow = new google.maps.InfoWindow({
-        content: infoContent
+        content: infoContent,
+        maxWidth: 350
     });
 
     marker.addListener('click', () => {
         infoWindow.open(map, marker);
     });
+
+    // Открываем информационное окно при загрузке карты
+    infoWindow.open(map, marker);
 }
 
 // Form validation and submission
@@ -418,20 +434,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Initialize Google Maps
-function initMap() {
-    const location = { lat: 36.511913, lng: -4.486793 };
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: location,
-    });
-    const marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: 'MarbellaCamper'
-    });
-}
-
 // Contact form handling
 function handleSubmit(event) {
     event.preventDefault();
@@ -502,11 +504,15 @@ const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
 if (showDetailsBtn) {
+    const textShow = showDetailsBtn.dataset.textShow || 'View Details';
+    const textHide = showDetailsBtn.dataset.textHide || 'Hide Details';
+
     showDetailsBtn.addEventListener('click', () => {
         suspensionDetails.style.display = suspensionDetails.style.display === 'none' ? 'block' : 'none';
-        showDetailsBtn.textContent = suspensionDetails.style.display === 'none' ? 'View Details' : 'Hide Details';
+        showDetailsBtn.textContent = suspensionDetails.style.display === 'none' ? textShow : textHide;
     });
 }
+
 
 tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
